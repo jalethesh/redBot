@@ -130,16 +130,20 @@ class Challenge:
         """
         if self.messages.get("bot_challenge"):
             raise OverflowError("Use 'Challenge.reload' to create another code.")
+        emoji = discord.PartialEmoji(name="activate", id=966512285784883291) 
 
         embed_and_file = await self.captcha.generate_embed(
             guild_name=self.guild.name,
             author={"name": f"Captcha for {self.member.name}", "url": self.member.avatar_url},
+            thumbnail={"url": f"{emoji.url}"},
             footer={"text": f"Tries: {self.trynum} / Limit: {self.limit}"},
-            title=f"{self.guild.name} Verification System",
+            # title=f"{self.guild.name} Verification System",
+            title="In order to get full access to the server, you must first verify that you are human.",
             description=(
                 "Please return me the code on the following image. The code is made of 8 "
                 "characters."
             ),
+            color="#58b9ff"
         )
 
         try:
