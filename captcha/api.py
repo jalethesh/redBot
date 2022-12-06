@@ -137,7 +137,6 @@ class Challenge:
             author={"name": f"Captcha for {self.member.name}", "url": self.member.avatar_url},
             thumbnail={"url": f"{emoji.url}"},
             footer={"text": f"Tries: {self.trynum} / Limit: {self.limit}"},
-            # title=f"{self.guild.name} Verification System",
             title="In order to get full access to the server, you must first verify that you are human.",
             description=(
                 "Please return me the code on the following image. The code is made of 8 "
